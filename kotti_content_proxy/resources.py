@@ -9,6 +9,7 @@ from kotti.resources import Content
 from sqlalchemy import Column
 from sqlalchemy import ForeignKey
 from sqlalchemy import Integer
+from sqlalchemy.orm import relationship
 
 from kotti_content_proxy import _
 
@@ -24,6 +25,8 @@ class ContentProxy(Content):
         Integer,
         ForeignKey('contents.id'),
         nullable=False)
+
+    proxied_object = relationship(Content, foreign_keys=[proxied_id])
 
     __mapper_args__ = Content.__mapper_args__.copy()
     __mapper_args__.update({

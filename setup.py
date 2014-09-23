@@ -35,7 +35,7 @@ setup(
     author='Andreas Kaiser',
     author_email='disko@binary-punks.com',
     url='https://github.com/Kotti',
-    license='bsd',
+    license='BSD',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,

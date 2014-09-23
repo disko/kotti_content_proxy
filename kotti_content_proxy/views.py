@@ -6,9 +6,10 @@ Created on 2014-09-23
 """
 
 import colander
+from kotti.util import render_view
 from kotti.views.edit import AddFormView
-from kotti.views.edit import ContentSchema
 from kotti.views.edit import EditFormView
+from pyramid.response import Response
 from pyramid.view import view_config
 from pyramid.view import view_defaults
 
@@ -16,8 +17,13 @@ from kotti_content_proxy import _
 from kotti_content_proxy.resources import ContentProxy
 
 
-class ContentProxySchema(ContentSchema):
-    example_text = colander.SchemaNode(colander.String())
+class ContentProxySchema(colander.MappingSchema):
+    title = colander.SchemaNode(
+        colander.String(),
+        title=_(u'Title'))
+    proxied_id = colander.SchemaNode(
+        colander.Integer(),
+        title=_(u'Proxied ID'))
 
 
 @view_config(name=ContentProxy.type_info.add_view,
@@ -46,7 +52,10 @@ class ContentProxyView(object):
         self.context = context
         self.request = request
 
-    @view_config(name='view', renderer='templates/view.pt')
+    @view_config(name='view')
     def view(self):
-        return {
-        }
+        return Response(render_view(
+            self.context.proxied_object,
+            self.request,
+            name='view',
+            secure=True))

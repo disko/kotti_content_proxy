@@ -8,6 +8,11 @@ A *content proxy* is very similar to a *symbolic link* on UNIX systems.
 It allows you to refer to a single content node from multiple places in your content tree without having to duplicate the content itself.
 In other words: it will show up in the navigation in multiple places, but still only exist once.
 
+For the moment only the ``view`` view is proxied.
+This means when you request the "view" of the ContentProxy object it will return the rendered view of the proxied object instead (respecting its permissions).
+
+For future versions it is planned to also proxy all attribute objects.
+
 `Find out more about Kotti`_
 
 Setup
