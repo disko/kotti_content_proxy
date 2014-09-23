@@ -2,11 +2,11 @@
 kotti_content_proxy
 ===================
 
-This is an extension to the Kotti CMS that allows you to add "content proxies" to your Kotti site.
+This is an extension to the Kotti CMS that allows you to add *content proxies* to your Kotti site.
 
-A content proxy is very similar to a *symbolic link* on UNIX systems.
+A *content proxy* is very similar to a *symbolic link* on UNIX systems.
 It allows you to refer to a single content node from multiple places in your content tree without having to duplicate the content itself.
-It will then show up in the navigation in multiple places, but still only exist once.
+In other words: it will show up in the navigation in multiple places, but still only exist once.
 
 `Find out more about Kotti`_
 
@@ -20,7 +20,7 @@ The line in your ``[app:main]`` section could then look like this::
 
   kotti.configurators = kotti_content_proxy.kotti_configure
 
-With this, you'll be able to add calendar and event items in your site.
+With this, you'll be able to add content proxy items in your site.
 
 
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
