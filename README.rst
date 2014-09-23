@@ -27,5 +27,12 @@ The line in your ``[app:main]`` section could then look like this::
 
 With this, you'll be able to add content proxy items in your site.
 
+Todo
+====
+
+- Make selection of the proxied object via the UI more user friendly.
+  Maybe use ``kotti_tinymce``'s ``kottibrowser``.
+
+- Proxy everything that makes sense.
 
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
