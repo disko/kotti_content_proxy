@@ -44,3 +44,10 @@ class ContentProxy(Content):
 
         super(ContentProxy, self).__init__(**kwargs)
         self.proxied_id = proxied_id
+
+    def __getattribute__(self, key):
+
+        if key in ('__acl__', ):
+            return self.proxied_object.__getattribute__(key)
+
+        return super(ContentProxy, self).__getattribute__(key)
