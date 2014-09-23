@@ -24,7 +24,7 @@ CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
 setup(
     name=project,
     version=version,
-    description="AddOn for Kotti",
+    description="A content type that proxies other content in a Kotti site",  # noqa
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
         "Programming Language :: Python",
