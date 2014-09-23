@@ -18,6 +18,8 @@ from kotti_content_proxy.resources import ContentProxy
 
 
 class ContentProxySchema(colander.MappingSchema):
+    """ ContentProxy add / edit schema """
+
     title = colander.SchemaNode(
         colander.String(),
         title=_(u'Title'))
@@ -30,6 +32,8 @@ class ContentProxySchema(colander.MappingSchema):
              permission='add',
              renderer='kotti:templates/edit/node.pt')
 class ContentProxyAddForm(AddFormView):
+    """ ContentProxy add view """
+
     schema_factory = ContentProxySchema
     add = ContentProxy
     item_type = _(u"ContentProxy")
@@ -40,20 +44,37 @@ class ContentProxyAddForm(AddFormView):
              permission='edit',
              renderer='kotti:templates/edit/node.pt')
 class ContentProxyEditForm(EditFormView):
+    """ ContentProxy edit view """
+
     schema_factory = ContentProxySchema
 
 
 @view_defaults(context=ContentProxy, permission='view')
 class ContentProxyView(object):
-    """docstring for ContentProxyView"""
+    """ ContentProxy view(s) """
 
     def __init__(self, context, request):
+        """ Constructor
+
+        :param context: The proxy object
+        :type context: :class:`kotti_content_proxy.resources.ContentProxy`
+
+        :param request: The current request
+        :type request: :class:`pyramid.request.Request`
+        """
+
         super(ContentProxyView, self).__init__()
         self.context = context
         self.request = request
 
     @view_config(name='view')
     def view(self):
+        """ Rendered ``view`` view of the proxied object.
+
+        :result: Rendered response
+        :rtype: :class:`pyramid.response.Response`
+        """
+
         return Response(render_view(
             self.context.proxied_object,
             self.request,

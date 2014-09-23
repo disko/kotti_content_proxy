@@ -41,11 +41,22 @@ class ContentProxy(Content):
         )
 
     def __init__(self, proxied_id=None, **kwargs):
+        """ Constructor
+
+        :param proxied_id: id of the proxied object
+        :type proxied_id: int
+
+        :param **kwargs: see :class:`kotti.resources.Content`
+        :type **kwargs: variant
+        """
 
         super(ContentProxy, self).__init__(**kwargs)
         self.proxied_id = proxied_id
 
     def __getattribute__(self, key):
+        """ Proxy some attributes.
+            See https://www.inkling.com/read/learning-python-mark-lutz-4th/chapter-37/--getattr---and---getattribute--  # noqa
+        """
 
         if key in ('__acl__', ):
             return self.proxied_object.__getattribute__(key)
