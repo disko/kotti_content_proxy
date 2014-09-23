@@ -41,11 +41,7 @@ setup(
     zip_safe=False,
     install_requires=install_requires,
     tests_require=[],
-    entry_points={
-        'fanstatic.libraries': [
-            'kotti_content_proxy = kotti_content_proxy.fanstatic:library',
-        ],
-    },
+    entry_points={},
     extras_require={},
     message_extractors={
         'kotti_content_proxy': [

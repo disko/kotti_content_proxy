@@ -9,8 +9,8 @@ import colander
 from kotti.views.edit import AddFormView
 from kotti.views.edit import ContentSchema
 from kotti.views.edit import EditFormView
-from pyramid.config import view_config
-from pyramid.config import view_defaults
+from pyramid.view import view_config
+from pyramid.view import view_defaults
 
 from kotti_content_proxy import _
 from kotti_content_proxy.resources import ContentProxy
