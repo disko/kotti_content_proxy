@@ -25,6 +25,11 @@ class ContentProxy(Content):
         ForeignKey('contents.id'),
         nullable=False)
 
+    __mapper_args__ = Content.__mapper_args__.copy()
+    __mapper_args__.update({
+        'inherit_condition': (id == Content.id),
+    })
+
     type_info = Content.type_info.copy(
         name=u'ContentProxy',
         title=_(u'Content Type'),
