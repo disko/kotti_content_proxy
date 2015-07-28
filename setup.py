@@ -14,7 +14,7 @@ version = '0.1dev'
 project = 'kotti_content_proxy'
 
 install_requires = [
-    'Kotti',
+    'Kotti>=1.0.0',
 ],
 
 here = os.path.abspath(os.path.dirname(__file__))

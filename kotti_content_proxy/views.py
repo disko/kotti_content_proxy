@@ -7,8 +7,8 @@ Created on 2014-09-23
 
 import colander
 from kotti.util import render_view
-from kotti.views.edit import AddFormView
-from kotti.views.edit import EditFormView
+from kotti.views.form import AddFormView
+from kotti.views.form import EditFormView
 from pyramid.response import Response
 from pyramid.view import view_config
 from pyramid.view import view_defaults
@@ -28,8 +28,7 @@ class ContentProxySchema(colander.MappingSchema):
         title=_(u'Proxied ID'))
 
 
-@view_config(name=ContentProxy.type_info.add_view,
-             permission='add',
+@view_config(name=ContentProxy.type_info.add_view, permission='add',
              renderer='kotti:templates/edit/node.pt')
 class ContentProxyAddForm(AddFormView):
     """ ContentProxy add view """
@@ -39,9 +38,7 @@ class ContentProxyAddForm(AddFormView):
     item_type = _(u"ContentProxy")
 
 
-@view_config(context=ContentProxy,
-             name='edit',
-             permission='edit',
+@view_config(context=ContentProxy, name='edit', permission='edit',
              renderer='kotti:templates/edit/node.pt')
 class ContentProxyEditForm(EditFormView):
     """ ContentProxy edit view """
@@ -75,8 +72,9 @@ class ContentProxyView(object):
         :rtype: :class:`pyramid.response.Response`
         """
 
-        return Response(render_view(
-            self.context.proxied_object,
-            self.request,
-            name='view',
-            secure=True))
+        return Response(
+            render_view(
+                self.context.proxied_object,
+                self.request,
+                name='view',
+                secure=True))

@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1dev
-------
+0.1.0
+-----
 
-- Create package with paster.
+- Initial release.

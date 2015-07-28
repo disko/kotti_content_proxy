@@ -1,10 +1,11 @@
-pytest_plugins = "kotti"
+# -*- coding: utf-8 -*-
 
 from pytest import fixture
 
 import kotti.tests
 from kotti.workflow import reset_workflow
 
+pytest_plugins = "kotti"
 
 # We're using a second db for the functional tests. The reason is
 # that we need to prefill the database with certain content and structure

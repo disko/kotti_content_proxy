@@ -1,4 +1,7 @@
-def test_model(db_session, root):
+# -*- coding: utf-8 -*-
+
+
+def test_model(root, db_session):
 
     from kotti.resources import Document
     from kotti_content_proxy.resources import ContentProxy
@@ -10,4 +13,3 @@ def test_model(db_session, root):
     db_session.flush()
 
     assert root['proxy'].proxied_object == doc
-    import pdb; pdb.set_trace()

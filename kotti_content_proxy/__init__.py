@@ -15,5 +15,5 @@ def includeme(config):
 
 
 def kotti_configure(settings):
-    settings['kotti.includes'] += ' kotti_content_proxy'
+    settings['pyramid.includes'] += ' kotti_content_proxy'
     settings['kotti.available_types'] += ' kotti_content_proxy.resources.ContentProxy'  # noqa
