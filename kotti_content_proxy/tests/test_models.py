@@ -11,7 +11,7 @@ def test_model(root, db_session, content):
 
     doc = root[u'foo']
 
-    # create a proxy for the "about" document
+    # create a proxy for the document
     root['proxy'] = ContentProxy(proxied_id=doc.id, title="proxied about")
     db_session.flush()
 

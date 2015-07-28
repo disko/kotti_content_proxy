@@ -35,8 +35,8 @@ class ContentProxy(Content):
 
     type_info = Content.type_info.copy(
         name=u'ContentProxy',
-        title=_(u'Content Type'),
-        add_view=u'add_content_type',
+        title=_(u'Content Proxy'),
+        add_view=u'add_content_proxy',
         addable_to=[u'Document'],
         )
 
