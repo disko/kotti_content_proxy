@@ -15,7 +15,7 @@ project = 'kotti_content_proxy'
 
 install_requires = [
     'Kotti>=1.0.0',
-],
+]
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
