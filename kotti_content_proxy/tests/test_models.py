@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
 
-def test_model(root, foo_proxy):
-    assert root[u'proxy'].proxied_object == root[u'foo']
+def test_model(foo_proxy):
+    assert foo_proxy[u'proxy'].proxied_object == foo_proxy[u'foo']
