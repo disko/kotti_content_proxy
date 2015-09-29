@@ -6,7 +6,7 @@ pytest_plugins = "kotti"
 
 
 @fixture
-def foo_proxy(root, db_session, content):
+def foo_proxy(root, db_session):
 
     from kotti.resources import Document
     from kotti_content_proxy.resources import ContentProxy
