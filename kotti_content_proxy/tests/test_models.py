@@ -12,7 +12,7 @@ def test_model(root, db_session, content):
     doc = root[u'foo']
 
     # create a proxy for the document
-    root['proxy'] = ContentProxy(proxied_id=doc.id, title="proxied about")
+    root['proxy'] = ContentProxy(proxied_id=doc.id, title=u'proxied about')
     db_session.flush()
 
     assert root['proxy'].proxied_object == doc
