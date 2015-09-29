@@ -2,4 +2,4 @@
 
 
 def test_model(root, foo_proxy):
-    assert root['proxy'].proxied_object == root[u'foo']
+    assert root[u'proxy'].proxied_object == root[u'foo']

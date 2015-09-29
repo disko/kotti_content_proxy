@@ -18,6 +18,6 @@ def foo_proxy(root, db_session, content):
     doc = root[u'foo']
 
     # create a proxy for the document
-    root['proxy'] = ContentProxy(proxied_id=doc.id, title=u'Proxy',
-                                 description=u'This is a proxy')
+    root[u'proxy'] = ContentProxy(proxied_id=doc.id, title=u'Proxy',
+                                  description=u'This is a proxy')
     db_session.flush()
