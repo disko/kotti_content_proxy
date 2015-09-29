@@ -31,5 +31,4 @@ def test_proxying_custom_attributes(root, db_session):
     assert proxy.some_attribute == foo.some_attribute
     with pytest.raises(AttributeError) as excinfo:
         proxy.another_attribute
-    assert excinfo.value.message == "'Document' object has no attribute " \
-                                    "'another_attribute'"
+    assert excinfo.value.message == "'Document' object has no attribute 'another_attribute'"  # noqa
