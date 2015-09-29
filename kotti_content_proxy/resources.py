@@ -31,6 +31,7 @@ class ContentProxy(Content):
     __mapper_args__ = Content.__mapper_args__.copy()
     __mapper_args__.update({
         'inherit_condition': (id == Content.id),
+        'polymorphic_identity': 'content_proxy',
     })
 
     type_info = Content.type_info.copy(
