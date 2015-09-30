@@ -35,3 +35,9 @@ Todo
 - Proxy everything that makes sense.
 
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
+
+Authors
+=======
+
+- Andreas Kaiser (disko).
+- Piotr Dobrogost (pdobrogost)
