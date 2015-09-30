@@ -27,9 +27,13 @@ setup(
     description="A content type that proxies other content in a Kotti site",  # noqa
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
-        "Programming Language :: Python",
+        "Development Status :: 4 - Beta",
+        "Environment :: Web Environment",
         "Framework :: Pyramid",
+        "Intended Audience :: Developers",
         "License :: Repoze Public License",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python",
     ],
     keywords='kotti addon',
     author='Andreas Kaiser',
