@@ -10,12 +10,12 @@ import os
 from setuptools import find_packages
 from setuptools import setup
 
-version = '0.1dev'
+version = '0.2.0'
 project = 'kotti_content_proxy'
 
 install_requires = [
-    'Kotti',
-],
+    'Kotti>=1.0.0',
+]
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
@@ -27,25 +27,25 @@ setup(
     description="A content type that proxies other content in a Kotti site",  # noqa
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
-        "Programming Language :: Python",
+        "Development Status :: 4 - Beta",
+        "Environment :: Web Environment",
         "Framework :: Pyramid",
+        "Intended Audience :: Developers",
         "License :: Repoze Public License",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python",
     ],
     keywords='kotti addon',
     author='Andreas Kaiser',
     author_email='disko@binary-punks.com',
     url='https://github.com/Kotti',
-    license='bsd',
+    license='BSD',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,
     tests_require=[],
-    entry_points={
-        'fanstatic.libraries': [
-            'kotti_content_proxy = kotti_content_proxy.fanstatic:library',
-        ],
-    },
+    entry_points={},
     extras_require={},
     message_extractors={
         'kotti_content_proxy': [
