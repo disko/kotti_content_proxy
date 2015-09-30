@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.2.0 (unreleased)
------
+0.2.0 - 2015-09-30
+------------------
 
 - Proxy now declares unique "polymorphic_identity" for use in SQLAlchemy.
 - Added proxying of custom attributes.
