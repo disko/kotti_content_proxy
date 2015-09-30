@@ -10,7 +10,7 @@ import os
 from setuptools import find_packages
 from setuptools import setup
 
-version = '0.1dev'
+version = '0.2.0.dev0'
 project = 'kotti_content_proxy'
 
 install_requires = [

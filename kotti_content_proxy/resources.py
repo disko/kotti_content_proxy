@@ -28,6 +28,11 @@ class ContentProxy(Content):
 
     proxied_object = relationship(Content, foreign_keys=[proxied_id])
 
+    # This can't be None as __getattribute__ is being called by SQLAlchemy's
+    # instrumentation before __init__ is called. See
+    # sqlalchemy.orm.instrumentation.ClassManager._new_state_if_none()
+    proxied_attrs = set()
+
     __mapper_args__ = Content.__mapper_args__.copy()
     __mapper_args__.update({
         'inherit_condition': (id == Content.id),
@@ -41,7 +46,7 @@ class ContentProxy(Content):
         addable_to=[u'Document'],
         )
 
-    def __init__(self, proxied_id=None, **kwargs):
+    def __init__(self, proxied_id=None, proxied_attrs=None, **kwargs):
         """ Constructor
 
         :param proxied_id: id of the proxied object
@@ -53,13 +58,17 @@ class ContentProxy(Content):
 
         super(ContentProxy, self).__init__(**kwargs)
         self.proxied_id = proxied_id
+        proxied_attrs = set(proxied_attrs) if proxied_attrs else set()
+        self.proxied_attrs = set('__acl__', ) | proxied_attrs
 
     def __getattribute__(self, key):
         """ Proxy some attributes.
             See https://www.inkling.com/read/learning-python-mark-lutz-4th/chapter-37/--getattr---and---getattribute--  # noqa
         """
+        super_getattribute = super(ContentProxy, self).__getattribute__
+        proxied_attrs = super_getattribute('proxied_attrs')
 
-        if key in ('__acl__', ):
+        if key in proxied_attrs:
             return self.proxied_object.__getattribute__(key)
 
         return super(ContentProxy, self).__getattribute__(key)
