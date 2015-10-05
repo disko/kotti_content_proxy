@@ -32,6 +32,7 @@ class ContentProxy(Content):
     # instrumentation before __init__ is called. See
     # sqlalchemy.orm.instrumentation.ClassManager._new_state_if_none()
     proxied_attrs = set()
+    _default_proxied_attrs = set(('__acl__',))
 
     __mapper_args__ = Content.__mapper_args__.copy()
     __mapper_args__.update({
@@ -58,8 +59,6 @@ class ContentProxy(Content):
 
         super(ContentProxy, self).__init__(**kwargs)
         self.proxied_id = proxied_id
-        proxied_attrs = set(proxied_attrs) if proxied_attrs else set()
-        self.proxied_attrs = set('__acl__', ) | proxied_attrs
 
     def __getattribute__(self, key):
         """ Proxy some attributes.
