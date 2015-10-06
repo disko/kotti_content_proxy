@@ -47,18 +47,18 @@ class ContentProxy(Content):
         addable_to=[u'Document'],
         )
 
-    def __init__(self, proxied_id=None, **kwargs):
+    def __init__(self, proxied_object=None, **kwargs):
         """ Constructor
 
-        :param proxied_id: id of the proxied object
-        :type proxied_id: int
+        :param proxied_object: proxied object
+        :type proxied_object: :class:`kotti.resources.Content`
 
         :param **kwargs: see :class:`kotti.resources.Content`
         :type **kwargs: variant
         """
 
         super(ContentProxy, self).__init__(**kwargs)
-        self.proxied_id = proxied_id
+        self.proxied_object = proxied_object
 
     def __getattribute__(self, key):
         """ Proxy some attributes.

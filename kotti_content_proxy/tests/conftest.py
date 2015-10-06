@@ -16,7 +16,7 @@ def foo_proxy(root, db_session):
     db_session.flush()
 
     # create a proxy for the 'foo'
-    proxy = root[u'proxy'] = ContentProxy(proxied_id=foo.id, title=u'Proxy',
+    proxy = root[u'proxy'] = ContentProxy(proxied_object=foo, title=u'Proxy',
                                           description=u'This is a proxy')
     db_session.flush()
 

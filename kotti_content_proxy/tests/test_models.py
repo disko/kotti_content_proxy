@@ -8,7 +8,6 @@ def test_model(foo_proxy):
 
 
 def test_proxying_custom_attributes(foo_proxy):
-
     import kotti_content_proxy
 
     mock_settings = {

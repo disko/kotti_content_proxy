@@ -4,7 +4,7 @@ Changelog
 0.3.1 - unreleased
 ------------------
 
-- No changes yet.
+- Now we take object to be proxied instead of its id.
 
 0.3.0 - 2015-10-05
 ------------------
