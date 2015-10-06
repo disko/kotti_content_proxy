@@ -47,7 +47,7 @@ class ContentProxy(Content):
         addable_to=[u'Document'],
         )
 
-    def __init__(self, proxied_id=None, proxied_attrs=None, **kwargs):
+    def __init__(self, proxied_id=None, **kwargs):
         """ Constructor
 
         :param proxied_id: id of the proxied object
