@@ -1,10 +1,11 @@
 Changelog
 =========
 
-0.3.1 - unreleased
+0.4.0 - 2015-10-07
 ------------------
 
 - Now we take object to be proxied instead of its id.
+  **This is a backward incompatible change.**
 
 0.3.0 - 2015-10-05
 ------------------
