@@ -6,9 +6,12 @@ Created on 2014-09-23
 """
 
 import colander
+
+from kotti.resources import Node
 from kotti.util import render_view
 from kotti.views.form import AddFormView
 from kotti.views.form import EditFormView
+
 from pyramid.response import Response
 from pyramid.view import view_config
 from pyramid.view import view_defaults
@@ -36,6 +39,12 @@ class ContentProxyAddForm(AddFormView):
     schema_factory = ContentProxySchema
     add = ContentProxy
     item_type = _(u"ContentProxy")
+
+    def save_success(self, appstruct):
+        proxied_id = appstruct.pop('proxied_id')
+        proxied_object = Node.query.filter(Node.id == proxied_id).one()
+        appstruct['proxied_object'] = proxied_object
+        return super(ContentProxyAddForm, self).save_success(appstruct)
 
 
 @view_config(context=ContentProxy, name='edit', permission='edit',
