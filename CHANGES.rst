@@ -1,10 +1,15 @@
 Changelog
 =========
 
-0.4.1 - unreleased
+0.5.0 - unreleased
 ------------------
 
 - No changes yet.
+
+0.4.1 - 2016-01-11
+------------------
+
+- Fix broken packaging.  Sorry for the inconvenience!
 
 0.4.0 - 2015-10-07
 ------------------
