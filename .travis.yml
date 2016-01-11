@@ -1,6 +1,11 @@
-language: python
-cache: pip
+anguage: python
 sudo: false
+cache:
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/.pip-accel
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
 python:
   - "2.7"
 env:
@@ -8,10 +13,9 @@ env:
   - KOTTI_TEST_DB_STRING=mysql+oursql://root@localhost:3306/kotti_content_proxy_testing
   - KOTTI_TEST_DB_STRING=sqlite://
 install:
-  - travis_retry pip install "pip==1.3.1"  # fix issue with fanstatic==1.0a
-  - travis_retry pip install "setuptools>=17.1"  # fix issue with mock==1.3.0
-  - travis_retry pip install -e . -r requirements.txt --use-mirrors
-  - travis_retry pip install psycopg2 oursql python-coveralls codecov
+  - travis_retry pip install --cache-dir $HOME/.cache/pip -U pip setuptools pip-accel
+  - travis_retry pip-accel install psycopg2 oursql python-coveralls codecov
+  - travis_retry pip-accel install -e . -r requirements.txt
   - python setup.py dev
 before_script:
   - psql -c 'create database kotti_content_proxy_testing;' -U postgres
